@@ -34,7 +34,7 @@ public class Longest_SubArray_withSum_K {
 //        }
 //        System.out.println(maxLen);
 
-        //BETTER SOLUTION:- (when the array contains +ves and 0's)
+        //BETTER SOLUTION:- (when the array contains +ves and 0's) :-
         //It is an Optimal Solution when the array contains -ves as well.
 //        HashMap<Integer,Integer> map = new HashMap<>();
 //        int sum = 0;

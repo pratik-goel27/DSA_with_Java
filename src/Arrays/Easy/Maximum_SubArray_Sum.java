@@ -3,7 +3,7 @@ package Arrays.Easy;
 public class Maximum_SubArray_Sum {
     public static void main(String[] args) {
         int[] arr = {-2,-3,4,-1,-2,1,5,-3};
-        //BRUTE FORCE:-
+        //BRUTE FORCE:-( O(N^3) --> This can handle n <= 300 after that the code will get stuck into TLE loop) :-
 //        int sum = 0;
 //        int maxSum = 0;
 //        for(int i = 0; i < arr.length; i++) {
@@ -19,7 +19,7 @@ public class Maximum_SubArray_Sum {
 //        }
 //        System.out.println(maxSum);
 
-        //BETTER SOLUTION:-
+        //BETTER SOLUTION:- ( O(N^2) --> This can handle n <= 10^4 after that the code will give TLE error) :-
 //        int sum = 0;
 //        int maxSum = 0;
 //        for (int i = 0; i < arr.length; i++) {
@@ -36,7 +36,7 @@ public class Maximum_SubArray_Sum {
         //OPTIMAL SOLUTION:-(KADANE'S ALGORITHM)
         int currSum = 0;
         int maxSum = Integer.MIN_VALUE;
-        int ansStart = -1, ansEnd = -1;  // to print the subarrays.
+        int ansStart = -1, ansEnd = -1;  // to print the subarray.
         int start = 0;
         for(int i = 0; i < arr.length; i++) {
             if(currSum == 0) {   //each we start a subarray from 0.
