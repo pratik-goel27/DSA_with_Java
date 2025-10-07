@@ -1,38 +1,47 @@
 package Arrays.Easy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Leaders_In_Array {
-    public static void main(String[] args) {
-        int[] nums = {-3, 4, 5, 1, -4, -5};
-        int n = nums.length;
-        ArrayList<Integer> al = new ArrayList<>();
+    public static ArrayList<Integer> leaders(int[] arr) {
+        // BRUTE FORCE SOLUTION :-
+        // int n = arr.length;
+        // ArrayList<Integer> list = new ArrayList<>();
+        // boolean greater = true;
+        // for(int i = 0; i < n; i++) {
+        //     greater = true;
+        //     for(int j = i+1; j < n; j++) {
+        //         if(arr[i] < arr[j]) {
+        //             greater = false;
+        //             break;
+        //         }
+        //     }
 
-        //BRUTE FORCE:-
-        for(int i = 0; i < n; i++) {
-            boolean greater = true;
-            for(int j = i+1; j < n; j++) {
-                if(nums[i] < nums[j]) {
-                    greater = false;
-                    break;
-                }
-            }
-            if(greater) {
-                al.add(nums[i]);
+        //     if(greater) {
+        //         list.add(arr[i]);
+        //     }
+        // }
+
+        // return list;
+
+        //OPTIMAL SOLUTION :-
+        int n = arr.length;
+        int maxi = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = n-1; i >= 0; i--) {
+            if(arr[i] > maxi) {
+                list.add(arr[i]);
+                maxi = arr[i];
             }
         }
-        System.out.println(al);
 
-        //OPTIMAL SOLUTION:-
-//        int max = nums[n-1];
-//        al.add(nums[n-1]);
-//        for(int i = n-1; i >= 0; i--) {
-//            if(nums[i] > max) {
-//                max = nums[i];
-//                al.add(max);
-//            }
-//        }
-//
-//        System.out.println(al);
+        Collections.reverse(list);
+        return list;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {-3, 4, 5, 1, -4, -5};
+        System.out.println(leaders(nums));
     }
 }
