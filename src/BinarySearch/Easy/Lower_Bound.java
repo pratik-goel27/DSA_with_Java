@@ -21,7 +21,7 @@ public class Lower_Bound {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,3,5,8,8,10,10,11};
+        int[] arr = {3,5,8,9,15,19};
         int target = 9;
         System.out.println(lowerBound(arr,target));
     }

@@ -3,9 +3,9 @@ package BinarySearch.Medium;
 public class Minimum_In_Rotated_Sorted_Arr {
 
     public static int minInRotatedSortedArr(int[] nums) {
-        int low = 0;
-        int high = nums.length-1;
+        int low = 0, high = nums.length-1;
         int min = Integer.MAX_VALUE;
+
         while(low <= high) {
             int mid = (low+high)/2;
             //if the arr is already sorted: -
