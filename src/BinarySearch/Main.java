@@ -86,35 +86,15 @@ public class Main {
 //                ans = Math.min(ans, nums[mid]);
 //                high = mid-1;
 //            }
+
 //        }
 //        return ans;
 //    }
 
-    public static int singleNonDuplicate(int[] nums) {
-//        int ans = 0;
-//        for(int i = 0; i < nums.length; i++) {
-//            ans = ans ^ nums[i];
-//        }
-//
-//        return ans;
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i = 0; i < nums.length; i++) {
-            int val = map.getOrDefault(nums[i], 0);
-            map.put(nums[i], val+1);
-        }
 
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if(entry.getValue() == 1) {
-                return entry.getKey();
-            }
-        }
-
-        return -1;
-    }
 
     public static void main(String[] args) {
-        int[] arr = {1,1,2,3,3,4,4,8,8};
-        System.out.println(singleNonDuplicate(arr));
+        int[] arr = {1,2,1,3,5,6,4};
     }
 }
