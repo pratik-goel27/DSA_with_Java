@@ -15,12 +15,21 @@ public class Capacity_to_Ship_Packages {
 
     public static int noOfDays(int[] arr, int cap) {
         int days = 1, load = 0;
+//        for(int i = 0; i < arr.length; i++) {
+//            if((load + arr[i]) > cap) {
+//                days++;
+//                load = arr[i];
+//            }else {
+//                load += arr[i];
+//            }
+//        }
+//        return days;
+
         for(int i = 0; i < arr.length; i++) {
-            if((load + arr[i]) > cap) {
-                days++;
+            load += arr[i];
+            if(load > cap) {
                 load = arr[i];
-            }else {
-                load += arr[i];
+                days++;
             }
         }
         return days;
@@ -35,18 +44,16 @@ public class Capacity_to_Ship_Packages {
 //        }
 
         int low = max(weights), high = sum(weights);
-        int ans = 0;
         while(low <= high) {
             int mid = (low+high) / 2;
             if(noOfDays(weights, mid) <= days) {
-//                ans = Math.min(ans, )
                 high = mid - 1;
             }
             else {
                 low = mid+1;
             }
         }
-        return -1;
+        return low;
     }
 
     public static void main(String[] args) {

@@ -1,44 +1,40 @@
 package BinarySearch.Medium;
 
 public class Find_Sqr_Rt {
-    public static void main(String[] args) {
-
-        //BRUTE FORCE:-
-//        int n = 0;
-//        int ans = -1;
-//        if(n == 0 || n == 1) {
-//            ans = n;
-//        }else {
-//            int low = 1;
-//            int high = n;
-//
-//            while (low <= high) {
-//                int mid = (low + high) / 2;
-//                if ((mid * mid) == n) {
-//                    ans = Math.max(ans, mid);
-//                    break;
-//                } else if ((mid * mid) > n) {
-//                    high = mid - 1;
-//                } else {
-//                    ans = Math.max(ans, mid);
-//                    low = mid + 1;
-//                }
+    public static int floorSqrt(int n) {
+        //BRUTE FORCE APPROACH :-
+//        int ans = 0;
+//        for(int i = 0; i <= n/2; i++) {
+//            if(n == 0 || n == 1) return n;
+//            if((i*i) <= n) {
+//                ans = i;
+//            }else{
+//                break;
 //            }
 //        }
-//        System.out.println(ans);
+//        return ans;
 
-        //OPTIMAL SOLUTION:-
-        int n = 1;
-        int low = 1, high = n;
+        //OPTIMAL SOLUTION :-
+        if(n == 0 || n == 1) return n;
+        int low = 1, high = n/2;
+        int ans = 0;
         while(low <= high) {
-            long mid = (low+high)/2;
-            long val = mid*mid;
-            if(val <= n) {
-                low = (int)mid+1;
+            int mid = (low+high) / 2;
+            if(mid*mid == n) {
+                return mid;
+            }
+            else if(mid*mid < n) {
+                ans = mid;
+                low = mid+1;
             }else {
-                high = (int) mid-1;
+                high = mid-1;
             }
         }
-        System.out.println(high);
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(floorSqrt(28));
     }
 }

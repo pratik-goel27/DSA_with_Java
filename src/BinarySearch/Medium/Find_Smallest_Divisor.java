@@ -1,43 +1,75 @@
 package BinarySearch.Medium;
 
 public class Find_Smallest_Divisor {
-    public static int getMaxi(int[] arr) {
-        int maxi = Integer.MIN_VALUE;
-        for(int i : arr) maxi = Math.max(maxi, i);
-        return maxi;
-    }
-
-    public static int calcSum(int[] arr, int divisor) {
-        int ans = 0;
-        for(int i = 0; i < arr.length; i++) {
-            ans += (int)Math.ceil((double)arr[i]/divisor);
-        }
-        return ans;
-    }
-
-    public static int smallestDivisor(int[] nums, int threshold) {
-//        for(int i = 1; i <= getMaxi(nums); i++) {
-//            if(calcSum(nums, i) <= threshold) {
-//                return i;
+//    public static int getMaxi(int[] arr) {
+//        int maxi = Integer.MIN_VALUE;
+//        for(int i : arr) maxi = Math.max(maxi, i);
+//        return maxi;
+//    }
+//
+//    public static int calcSum(int[] arr, int divisor) {
+//        int ans = 0;
+//        for(int i = 0; i < arr.length; i++) {
+//            ans += (int)Math.ceil((double)arr[i]/divisor);
+//        }
+//        return ans;
+//    }
+//
+//    public static int smallestDivisor(int[] nums, int threshold) {
+////        for(int i = 1; i <= getMaxi(nums); i++) {
+////            if(calcSum(nums, i) <= threshold) {
+////                return i;
+////            }
+////        }
+////        return -1;
+//
+//        int low = 1;
+//        int high = getMaxi(nums);
+//        int ans = Integer.MAX_VALUE;
+//        while(low <= high) {
+//            int mid = (low+high) / 2;
+//            if(calcSum(nums, mid) <= threshold) {
+//                ans = Math.min(ans, mid);
+//                high = mid-1;
+//            }else {
+//                low = mid+1;
 //            }
 //        }
-//        return -1;
+//
+//        return ans;
+//    }
 
-        int low = 1;
-        int high = getMaxi(nums);
-        int ans = Integer.MAX_VALUE;
-        while(low <= high) {
-            int mid = (low+high) / 2;
-            if(calcSum(nums, mid) <= threshold) {
-                ans = Math.min(ans, mid);
-                high = mid-1;
-            }else {
-                low = mid+1;
-            }
+        public static int getMaxi(int[] arr) {
+            int maxi = Integer.MIN_VALUE;
+            for(int num : arr) maxi = Math.max(maxi, num);
+            return maxi;
         }
 
-        return ans;
-    }
+        public static boolean possible(int[] arr, int threshold, int divisor) {
+            int sum = 0;
+            for(int i = 0; i < arr.length; i++) {
+                sum += (arr[i] + divisor - 1)/divisor;
+            }
+            return sum <= threshold;
+        }
+
+        public static int smallestDivisor(int[] nums, int threshold) {
+    //        for(int i = 1; i <= getMaxi(nums); i++) {
+    //            if(possible(nums, threshold, i)) return i;
+    //        }
+    //        return -1;
+
+            int low = 1, high = getMaxi(nums);
+            while(low <= high) {
+                int mid = low + (high-low)/2;
+                if(possible(nums, threshold, mid)) {
+                    high = mid-1;
+                }else {
+                    low = mid+1;
+                }
+            }
+            return low;
+        }
 
     public static void main(String[] args) {
         int[] nums = {44,22,33,11,1};
