@@ -3,6 +3,7 @@ package Arrays.Easy;
 import java.util.HashMap;
 
 public class Count_SubArrays_Sum_Equals_K {
+
     public static int subarraySum(int[] nums, int k) {
         //BRUTE FORCE SOLUTION:- O(N3)
 //         int sum = 0, cnt = 0;
@@ -17,7 +18,6 @@ public class Count_SubArrays_Sum_Equals_K {
 //                 if(sum == K) cnt++;
 //             }
 //         }
-//
 //         return cnt;
 
         //BETTER SOLUTION :-O(N2)
@@ -31,50 +31,42 @@ public class Count_SubArrays_Sum_Equals_K {
 //                if(sum == k) cnt++;
 //            }
 //        }
-//
 //        return cnt;
 
         //OPTIMAL SOLUTION :-
-//        int sum = 0, cnt = 0;
-//        HashMap<Integer, Integer> map = new HashMap<>();
-//        map.put(0,1);
-//
-//        for(int i = 0; i < nums.length; i++) {
-//            sum += nums[i];
-//
-//            if(map.containsKey(sum-k)) {
-//                cnt += map.get(sum-k);
-//            }
-//
-//            if(map.containsKey(sum)) {
-//                map.put(sum, map.get(sum)+1);
-//            }else {
-//                map.put(sum, 1);
-//            }
-//        }
-//
-//        return cnt;
-
-
         int sum = 0, cnt = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0,1);
 
         for(int i = 0; i < nums.length; i++) {
-            //add curr ele into the sum :-
             sum += nums[i];
-
-            //cal x-k
-            int remove = sum - k;
-
-            // add the number of sub arrays to be removed :-
-            cnt += map.getOrDefault(remove, 0);
-
-            //update the cnt of sum in the hash map :-
-            map.put(sum , map.getOrDefault(sum,0)+1);
+            if(map.containsKey(sum-k)) {
+                cnt += map.get(sum-k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
-
         return cnt;
+
+
+//        int sum = 0, cnt = 0;
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//        map.put(0,1);
+//
+//        for(int i = 0; i < nums.length; i++) {
+//            //add curr ele into the sum :-
+//            sum += nums[i];
+//
+//            //cal x-k
+//            int remove = sum - k;
+//
+//            // add the number of sub arrays to be removed :-
+//            cnt += map.getOrDefault(remove, 0);
+//
+//            //update the cnt of sum in the hash map :-
+//            map.put(sum , map.getOrDefault(sum,0)+1);
+//        }
+//
+//        return cnt;
     }
 
     public static void main(String[] args) {

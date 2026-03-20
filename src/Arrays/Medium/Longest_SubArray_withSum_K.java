@@ -1,11 +1,7 @@
 package Arrays.Medium;
 
 public class Longest_SubArray_withSum_K {
-    public static void main(String[] args) {
-//        int[] arr = {1,2,3,1,1,1,1,4,2,3};
-//        int K = 3;
-
-
+    public static int longestSubarray(int[] arr, int k) {
         //BRUTE FORCE:-(with O(n3))
 //        int maxLen = 0;
 //        for(int i = 0; i < arr.length; i++) {
@@ -55,30 +51,26 @@ public class Longest_SubArray_withSum_K {
 //            }
 //        }
 //
-//        System.out.println(len);
+//        return len;
 
         //OPTIMAL SOLUTION:-
-
-        int[] arr2 = {1,2,3,1,1,1,1,3,3};
-        int K = 6;
-
-        int sum = arr2[0];
-        int len = 0;
-        int i = 0, j = 0;
-        int n = arr2.length;
-        while(j < n) {
-            while(i <= j && sum > K) {
-                sum = sum - arr2[i];
-                i++;
+        int right = 0, left = 0;
+        int maxLen = 0, sum = 0;
+        while(right < arr.length) {
+            sum += arr[right];
+            while(sum > k) {
+                sum -= arr[left];
+                left++;
             }
-            if (sum == K) {
-                len = Math.max(len,j-i+1);
-            }
-            j++;
-            if(j < n) {
-                sum += arr2[j];
-            }
+            if(sum == k) maxLen = Math.max(maxLen, right-left+1);
+            right++;
         }
-        System.out.println(len);
+
+        return maxLen;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,1,1,1,1,3,3};
+        System.out.println(longestSubarray(arr, 6));
     }
 }
