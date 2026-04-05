@@ -13,7 +13,6 @@ public class Binary_SubArray_with_Sum {
             cnt += right-left+1;
             right++;
         }
-
         return cnt;
     }
 

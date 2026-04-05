@@ -37,7 +37,6 @@ public class Longest_Repeating_Character_Replacement {
 //            maxLen = Math.max(maxLen, right-left+1);
 //            right++;
 //        }
-//
 //        return maxLen;
 
         //OPTIMAL SOLUTION :-
@@ -57,7 +56,6 @@ public class Longest_Repeating_Character_Replacement {
             maxLen = Math.max(maxLen, right-left+1);
             right++;
         }
-
         return maxLen;
     }
 
