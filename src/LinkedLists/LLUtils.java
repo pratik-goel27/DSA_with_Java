@@ -27,6 +27,32 @@ public class LLUtils {
         return head;
     }
 
+    public static ListNode createCyclicSinglyLL(int[] arr, int pos) {
+        if (arr.length == 0) return null;
+
+        ListNode head = new ListNode(arr[0]);
+        ListNode temp = head;
+        ListNode cycleNode = null;
+
+        if (pos == 0) cycleNode = head;
+
+        for (int i = 1; i < arr.length; i++) {
+            temp.next = new ListNode(arr[i]);
+            temp = temp.next;
+
+            if (i == pos) {
+                cycleNode = temp;
+            }
+        }
+
+        // create cycle
+        if (cycleNode != null) {
+            temp.next = cycleNode;
+        }
+
+        return head;
+    }
+
     public static void displaySinglyLL(ListNode head) {
         ListNode temp = head;
         while(temp != null) {

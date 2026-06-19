@@ -1,16 +1,8 @@
 package LinkedLists;
 
 public class Reverse_LL {
-    static class Node {
-        int data;
-        Node next;
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
 
-    public static Node reverse(Node head) {
+    public static ListNode reverse(ListNode head) {
         //ITERATIVE :- (BRUTE FORCE) :-
 //        Node temp = head;
 //        Stack<Integer> st = new Stack<>();
@@ -27,9 +19,10 @@ public class Reverse_LL {
 //
 //        return head;
 
-        Node prev = null;
-        Node temp = head;
-        Node front;
+        //OPTIMAL SOLUTION :- (Reversing the links)
+        ListNode prev = null;
+        ListNode temp = head;
+        ListNode front;
 
         while(temp != null) {
             front = temp.next;
@@ -48,23 +41,11 @@ public class Reverse_LL {
 //        return newHead;
     }
 
-    public static void display(Node head) {
-        Node temp = head;
-        while(temp != null) {
-            System.out.print(temp.data+ "-->");
-            temp = temp.next;
-        }
-        System.out.println("null");
-    }
-
     public static void main(String[] args) {
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(10);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
-        display(head);
-        Node newHead = reverse(head);
-        display(newHead);
+        int[] arr = {1,2,10,4,5};
+        ListNode head = LLUtils.createSinglyLL(arr);
+        LLUtils.displaySinglyLL(head);
+        ListNode newHead = reverse(head);
+        LLUtils.displaySinglyLL(newHead);
     }
 }
