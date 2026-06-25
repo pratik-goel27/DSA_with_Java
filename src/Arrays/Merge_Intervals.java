@@ -6,8 +6,7 @@ import java.util.List;
 
 public class Merge_Intervals {
     public static int[][] merge(int[][] intervals) {
-        //BRUTE FORCE SOLUTION :-
-
+////        BRUTE FORCE SOLUTION :-
 //        List<List<Integer>> list = new ArrayList<>();
 //        //Sorting the 2D array using comparator and lambda function :-
 //        Arrays.sort(intervals, (a,b) -> {
