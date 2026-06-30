@@ -73,7 +73,7 @@ public class Search_in_2D_Matrix {
                         {23,30,34,60}};
         System.out.println(searchMatrix(matrix, 3));
 
-        //Strictly sorted array :-(row wise and column wise sorted)
+        //row wise and column wise sorted but not 1D sorted.
 //        int[][] matrix = {{10,20,30,40},
 //                            {11,21,36,43},
 //                            {25,29,39,50},

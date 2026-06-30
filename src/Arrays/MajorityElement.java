@@ -1,11 +1,11 @@
 package Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MajorityElement {
-    public static void main(String[] args) {
-        int[] arr = {2,2,1,1,1,2,2};
-        int n = arr.length;
-
+    public static int majorityElement(int[] arr) {
         //BRUTE FORCE SOLUTION:-
+//        int n = arr.length;
 //        for(int i = 0; i < n; i++) {
 //            int count = 0;
 //            for(int j = 0; j < n; j++) {
@@ -13,11 +13,9 @@ public class MajorityElement {
 //                    count++;
 //                }
 //            }
-//            if(count > n/2) {
-//                System.out.println(arr[i]);
-//                break;
-//            }
+//            if(count > n/2) return arr[i];
 //        }
+//        return -1;
 
         //MY SOLUTION:-
 //        int max = arr[0];
@@ -42,24 +40,25 @@ public class MajorityElement {
 
         //BETTER SOLUTION:-
 //        HashMap<Integer,Integer> map = new HashMap<>();
-//        int result = 0;
+//        int n = arr.length;
 //        //Putting Elements into the map:-
 //        for(int i = 0; i < n; i++) {
 //            int value = map.getOrDefault(arr[i],0);
 //            map.put(arr[i],value+1);
 //        }
-//        //Searching elements from a map:-
+//        //Searching elements from the map:-
 //        for(Map.Entry<Integer,Integer> entry : map.entrySet()) {
 //            if(entry.getValue() > n/2) {
-//                result = entry.getKey();
-//                break;
+//                return entry.getKey();
 //            }
 //        }
-//        System.out.println(result);
+//        return -1;
 
-        //OPTIMAL SOLUTION:(MOORE'S VOTING ALGORITHM)
+        //OPTIMAL SOLUTION (MOORE'S VOTING ALGORITHM) :-
+        int n = arr.length;
         int ele = 0;
         int count = 0;
+        //Applying the algo :-
         for(int i = 0; i < n; i++) {
             if(count == 0) {
                 count = 1;
@@ -71,16 +70,17 @@ public class MajorityElement {
             }
         }
 
-        int cnt = 0;
+        //Checking whether the ele is the majority element.
+        count = 0;
         for(int i = 0; i < n; i++) {
-            if(arr[i] == ele) {
-                cnt++;
-            }
+            if(arr[i] == ele) count++;
         }
-        if(cnt > n/2) {
-            System.out.println(ele+" is majority element in the array.");
-        }else {
-            System.out.println("No majority element exist in the array.");
-        }
+        if(count > n/2) return ele;
+        else return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2,2,1,1,1,2,2};
+        System.out.println(majorityElement(arr));
     }
 }
