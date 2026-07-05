@@ -65,23 +65,23 @@ public class Merge_2_Sorted_Arr {
 //        System.out.println(Arrays.toString(nums1));
 
 
-        //OPTIMAL SOLUTION-2 :- (gap method using shell sort)
+        //OPTIMAL SOLUTION-2  (gap method using shell sort) :-
         int len = (n + m);
-        int gap = (len / 2) + (len % 2);
+        int gap = (len / 2) + (len % 2);  //ceil value of (n+m)/2
 
         while(gap > 0) {
             int left = 0;
             int right = left + gap;
             while(right < len) {
-                //arr1 and arr2
+                //left in arr1 and right in arr2.
                 if(left < m && right >= m) {
                     swapIfG(nums1, nums2, left, right - m);
                 }
-                //arr2 and arr2
+                //left and right both in arr2.
                 else if(left >= m) {
                     swapIfG(nums2, nums2, left - m, right - m);
                 }
-                //arr1 and arr1
+                //left and right both in arr1.
                 else{
                     swapIfG(nums1, nums1, left, right);
                 }

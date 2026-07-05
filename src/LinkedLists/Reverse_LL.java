@@ -3,7 +3,7 @@ package LinkedLists;
 public class Reverse_LL {
 
     public static ListNode reverse(ListNode head) {
-        //ITERATIVE :- (BRUTE FORCE) :-
+        //BRUTE FORCE (Reversing in terms of values) :-
 //        Node temp = head;
 //        Stack<Integer> st = new Stack<>();
 //        while(temp != null) {
@@ -19,7 +19,7 @@ public class Reverse_LL {
 //
 //        return head;
 
-        //OPTIMAL SOLUTION :- (Reversing the links)
+        //OPTIMAL SOLUTION (Reversing the links) :-
         ListNode prev = null;
         ListNode temp = head;
         ListNode front;

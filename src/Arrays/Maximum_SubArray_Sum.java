@@ -33,7 +33,7 @@ public class Maximum_SubArray_Sum {
 //        }
 //        System.out.println(maxSum);
 
-        //OPTIMAL SOLUTION:-(KADANE'S ALGORITHM)
+        //OPTIMAL SOLUTION (KADANE'S ALGORITHM) :-
         int currSum = 0;
         int maxSum = Integer.MIN_VALUE;
         int ansStart = -1, ansEnd = -1;  // to print the subarray.

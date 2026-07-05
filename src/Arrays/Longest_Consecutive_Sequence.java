@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Longest_Consecutive_Sequence {
 
-    public static boolean ls(int[] arr, int ele) {
+    public static boolean linearSearch(int[] arr, int ele) {
         boolean ans = false;
         for(int i = 0; i < arr.length; i++) {
             if(arr[i] == ele) {
@@ -25,7 +25,7 @@ public class Longest_Consecutive_Sequence {
 //         for(int i = 0; i < arr.length; i++) {
 //             int x = arr[i];
 //             cnt = 1;
-//             while(ls(arr, x+1)) {
+//             while(linearSearch(arr, x+1)) {
 //                 cnt++;
 //                 x++;
 //                 largest = Math.max(largest, cnt);
@@ -58,16 +58,13 @@ public class Longest_Consecutive_Sequence {
         //OPTIMAL SOLUTION :-
         if(arr.length == 0) return 0;
         Set<Integer> st = new HashSet<>();
-        for(int i = 0; i < arr.length; i++) {
-            st.add(arr[i]);
-        }
+        for(int i = 0; i < arr.length; i++) st.add(arr[i]);
 
-        int cnt = 1;
         int largest = 1;
 
-        for(int it : st) {
-            int curr = it;
-            cnt = 1;
+        for(int num : st) {
+            int curr = num;
+            int cnt = 1;
             if(!st.contains(curr - 1)) {
                 while(st.contains(curr + 1)) {
                     curr = curr + 1;
