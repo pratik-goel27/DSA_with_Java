@@ -1,28 +1,26 @@
 package LinkedLists;
 
-public class Middle_of_LL {
+public class Middle_Of_LL {
 
     public static ListNode findMid(ListNode head) {
-        //BRUTE FORCE METHOD :-
+        //BRUTE FORCE :-
 //        ListNode temp = head;
-//        //Finding the no of nodes :-
 //        int cnt = 0;
 //        while(temp != null) {
 //            cnt++;
 //            temp = temp.next;
 //        }
 //
-//        //Finding the mid :-
 //        temp = head;
-//        int mid = (cnt / 2) + 1;
-//        while(temp != null) {
-//            mid--;
-//            if(mid == 0) break;
+//        int i = 1;
+//        while(i < (cnt/2 + 1)) {
 //            temp = temp.next;
+//            i++;
 //        }
+//
 //        return temp;
 
-        //OPTIMAL (TORTOISE AND HARE) :-
+        //OPTIMAL SOLUTION :-
         ListNode slow = head;
         ListNode fast = head;
         while(fast != null && fast.next != null) {
@@ -33,9 +31,9 @@ public class Middle_of_LL {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,10,4,5};
+        int[] arr = {1,2,3,4,5,6};
         ListNode head = LLUtils.createSinglyLL(arr);
-        ListNode midNode = findMid(head);
-        System.out.println(midNode.data);
+        ListNode mid = findMid(head);
+        System.out.println(mid.data);
     }
 }
