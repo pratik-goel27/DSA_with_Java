@@ -1,11 +1,9 @@
 package LinkedLists;
 
-import java.util.Stack;
-
 public class Check_Palindrome {
 
     public static boolean isPalindrome(ListNode head) {
-//        //BRUTE FORCE APPROACH :-  O(N) space, have to reduce this in optimal soln.
+//        //BRUTE FORCE APPROACH   O(N) space, have to reduce this in optimal solution.
 //        //STEP1 :-
 //        ListNode temp = head;
 //        Stack<Integer> st = new Stack<>();
@@ -37,15 +35,15 @@ public class Check_Palindrome {
         ListNode newHead = Reverse_LL.reverse(slow.next);
 
         //Step3: checking the left and right halves.
-        ListNode first = head;
+        ListNode left = head;
         ListNode right = newHead;
         while(right != null) {
-            if(first.data != right.data) return false;
+            if(left.data != right.data) return false;
 
-            first = first.next;
+            left = left.next;
             right = right.next;
         }
-        Reverse_LL.reverse(newHead);
+        Reverse_LL.reverse(newHead);  //reverse back so that the LL is at its original structure.
         return true;
     }
 

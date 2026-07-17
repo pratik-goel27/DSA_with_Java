@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class Starting_Point_in_LL {
 
     public static ListNode detectCycle(ListNode head) {
-        //BRUTE FORCE APPROACH :- USING HASHING :-
+        //BRUTE FORCE APPROACH USING HASHING :-
 //        HashSet<Node> map = new HashSet<>();
 //        Node temp = head;
 //        while(temp != null) {

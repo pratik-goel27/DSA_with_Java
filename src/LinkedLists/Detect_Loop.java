@@ -54,5 +54,6 @@ public class Detect_Loop {
         int[] arr = {1,2,3,4,5,6,7,8};
         ListNode head = LLUtils.createCyclicSinglyLL(arr, 2);
         System.out.println(hasCycle(head));
+//        System.out.println(lengthOfLoop(head));
     }
 }

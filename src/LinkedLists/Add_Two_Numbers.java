@@ -24,6 +24,7 @@ public class Add_Two_Numbers {
             temp.next = node;
             temp = temp.next;
         }
+
         return dummy.next;
     }
 
