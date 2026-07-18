@@ -3,7 +3,7 @@ package LinkedLists;
 import java.util.HashMap;
 
 public class Clone_LL_with_Next_and_Random_Pointers {
-    public static ListNode copyRandomList(ListNode head) {
+    public static void copyRandomList(ListNode head) {
         //BRUTE FORCE :-
 //        HashMap<ListNode, ListNode> map = new HashMap<>();
 //        ListNode temp = head;
